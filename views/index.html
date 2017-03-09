@@ -33,7 +33,7 @@
       <div id="tweets">
       {% for tweet in tweets %}
         <div class="tweetbox">
-          <img>
+          <img src="{{tweet.picture_url}}">
           <div class="content">
             <p class="by"><a href="/users/{{tweet.name}}">{{tweet.name}}</a></p>
             <p><a href="/tweets/{{tweet.id}}">{{tweet.text}}</a></p>

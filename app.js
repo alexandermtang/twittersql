@@ -34,6 +34,13 @@ app.use(express.static(path.join(__dirname, '/public')));
 // modular routing that uses io inside it
 app.use('/', makesRouter(io));
 
+app.use(function(err, req, res, next) {
+  console.error('There was an error');
+  console.error(err.message);
+  console.error(err.stack);
+  res.status(err.status || 500).send();
+})
+
 // // manually-written static file middleware
 // app.use(function(req, res, next){
 //   var mimeType = mime.lookup(req.path);
